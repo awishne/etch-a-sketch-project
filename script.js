@@ -1,6 +1,24 @@
 const container = document.getElementById('container');
 const newGridButton = document.getElementById('newGrid');
 
+function randomRGB() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+for (let i = 0; i < 16; i++) {
+    for (let j = 0; j < 16; j++) {
+        const div = document.createElement('div');
+        div.className = 'grid-div';
+        div.addEventListener('mouseover', function(){
+            div.style.backgroundColor = randomRGB();
+        });
+        container.appendChild(div);
+    }
+}
+
 newGridButton.addEventListener('click', function(){
     const gridSize = prompt('Enter the number of squares per side for the new grid', '16');
     if (gridSize !==null && !isNaN(gridSize) && gridSize > 0 && gridSize <= 100) {
@@ -20,21 +38,10 @@ function createGrid(size) {
             const div = document.createElement('div');
             div.className = 'grid-div';
             div.addEventListener('mouseover', function(){
-                div.style.backgroundColor = 'black';
+                div.style.backgroundColor = randomRGB();
             });
             container.appendChild(div);
         }
-    }
-}
-
-for (let i = 0; i < 16; i++) {
-    for (let j = 0; j < 16; j++) {
-        const div = document.createElement('div');
-        div.className = 'grid-div';
-        div.addEventListener('mouseover', function(){
-            div.style.backgroundColor = 'black';
-        });
-        container.appendChild(div);
     }
 }
 
