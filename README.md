@@ -32,8 +32,6 @@ This project is a modern take on the classic Etch-a-Sketch toy, reimagined as a 
 
 ## About the Developer
 
-## About the Developer
-
 I'm Adam Wishne, an experienced operations professional with a strong background in project management and data analysis. I've spent the past 10 years working in operations, where I've honed my problem-solving and analytical skills. I'm currently finishing up my MBA at the University of Illinois, where I've further developed my business acumen and strategic thinking.
 
 Over the past year, I've taken on a hybrid project management/data analyst role, where I've had the opportunity to work on a wide range of projects and use data to drive business decisions. I'm passionate about leveraging technology to solve complex problems and create value for organizations.
