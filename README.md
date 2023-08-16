@@ -1,5 +1,7 @@
 # Etch-a-Sketch Project
 
+[View the live project here](https://awishne.github.io/etch-a-sketch-project/)
+
 ## Overview
 This project is a modern take on the classic Etch-a-Sketch toy, reimagined as a web-based application. It offers an interactive drawing experience where users can create pixelated artwork by simply hovering over a grid with their mouse. I built this project to practice and showcase my skills in HTML, CSS, and JavaScript.
 
