@@ -8,12 +8,28 @@ function randomRGB() {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
+function darkenColor(color, interactions) {
+    const match = color.match(/rgb\((\d+), (\d+), (\d+)\)/);
+    const r = Math.floor(match[1] * (1 - interactions * 0.1));
+    const g = Math.floor(match[2] * (1 - interactions * 0.1));
+    const b = Math.floor(match[3] * (1 - interactions * 0.1));
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
 for (let i = 0; i < 16; i++) {
     for (let j = 0; j < 16; j++) {
         const div = document.createElement('div');
         div.className = 'grid-div';
-        div.addEventListener('mouseover', function(){
-            div.style.backgroundColor = randomRGB();
+        div.addEventListener('mouseover', function() {
+            const interactions = div.getAttribute('data-interactions') || 0;
+            const newInteractions = parseInt(interactions) + 1;
+            if (newInteractions === 1) {
+                div.style.backgroundColor = randomRGB();
+            } else {
+                const color = div.style.backgroundColor;
+                div.style.backgroundColor = darkenColor(color, newInteractions);
+            }
+            div.setAttribute('data-interactions', newInteractions);
         });
         container.appendChild(div);
     }
@@ -37,8 +53,16 @@ function createGrid(size) {
         for (let j = 0; j < size; j++) {
             const div = document.createElement('div');
             div.className = 'grid-div';
-            div.addEventListener('mouseover', function(){
-                div.style.backgroundColor = randomRGB();
+            div.addEventListener('mouseover', function() {
+                const interactions = div.getAttribute('data-interactions') || 0;
+                const newInteractions = parseInt(interactions) + 1;
+                if (newInteractions === 1) {
+                    div.style.backgroundColor = randomRGB();
+                } else {
+                    const color = div.style.backgroundColor;
+                    div.style.backgroundColor = darkenColor(color, newInteractions);
+                }
+                div.setAttribute('data-interactions', newInteractions);
             });
             container.appendChild(div);
         }
